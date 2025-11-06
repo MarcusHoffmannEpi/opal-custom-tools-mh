@@ -15,7 +15,7 @@ app.use((req, res, next) => {
     return next(); // Skip auth for public assets
   }
   return basicAuth({
-    users: { 'admin': 'password' },
+    users: { 'mh': 'e2bdcbe5-2c77-44cb-bba0-95b16182879f' },
     challenge: true,
   })(req, res, next);
 });
