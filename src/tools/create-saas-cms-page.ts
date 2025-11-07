@@ -40,7 +40,7 @@ async function MH_create_saas_cms_page(parameters: CreateCmsPageParameters) {
       displayName: displayName,
       locale: locale,
       status: 'draft',
-      properties: parsedProperties
+      properties: 'parsedProperties'
     });
 
     // Generate preview URL
