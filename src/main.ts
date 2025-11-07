@@ -14,8 +14,10 @@ app.use((req, res, next) => {
   if (req.path.startsWith('/public/') || req.path === '/rick.gif') {
     return next(); // Skip auth for public assets
   }
+  const username = process.env.BASIC_AUTH_USERNAME || 'mh';
+  const password = process.env.BASIC_AUTH_PASSWORD || '';
   return basicAuth({
-    users: { 'mh': 'e2bdcbe5-2c77-44cb-bba0-95b16182879f' },
+    users: { [username]: password },
     challenge: true,
   })(req, res, next);
 });
@@ -25,6 +27,7 @@ const toolsService = new ToolsService(app);
 
 // Import tools
 import "./tools/api-call";
+import "./tools/create-saas-cms-page";
 import "./tools/greeting";
 import "./tools/rick-roll";
 import "./tools/sqlite-query";

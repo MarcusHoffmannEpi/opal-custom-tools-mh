@@ -156,6 +156,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remkoj/optimizely-cms-api@npm:^5.1.5":
+  version: 5.1.5
+  resolution: "@remkoj/optimizely-cms-api@npm:5.1.5"
+  checksum: 10c0/8f594382a365644cd9f69543274fcad5e9d6acce3159b40fe185c4792ed6e69da5ee39a09a21ed35b67f38ee19047a02a55f2d6aa9ccad07cd47511b68ec9def
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:1":
   version: 1.1.2
   resolution: "@tootallnate/once@npm:1.1.2"
@@ -2008,10 +2015,12 @@ __metadata:
   dependencies:
     "@netlify/functions": "npm:^2.4.1"
     "@optimizely-opal/opal-tools-sdk": "npm:^0.1.0-dev"
+    "@remkoj/optimizely-cms-api": "npm:^5.1.5"
     "@types/cors": "npm:^2.8.18"
     "@types/express": "npm:^4.17.17"
     "@types/node": "npm:^20.4.5"
     "@types/sqlite3": "npm:^5.1.0"
+    axios: "npm:^1.6.0"
     cors: "npm:^2.8.5"
     express: "npm:^4.18.2"
     express-basic-auth: "npm:^1.2.1"

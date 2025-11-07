@@ -1,7 +1,7 @@
 {
   "name": "opal-custom-tools",
   "packageManager": "yarn@4.3.1",
-  "main": "dist/main.js",
+  "main": "build/main.js",
   "private": true,
   "scripts": {
     "build": "tsc",
@@ -11,6 +11,8 @@
   "dependencies": {
     "@netlify/functions": "^2.4.1",
     "@optimizely-opal/opal-tools-sdk": "^0.1.0-dev",
+    "@remkoj/optimizely-cms-api": "^5.1.5",
+    "axios": "^1.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-basic-auth": "^1.2.1",
