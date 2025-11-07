@@ -32,16 +32,28 @@ async function MH_create_saas_cms_page(parameters: CreateCmsPageParameters) {
     baseUrl: process.env.OPTIMIZELY_CMS_BASE_URL || '',
   });
 
-  try {
+  // try {
+  //   // Create the page with provided parameters
+  //   const newPage = await client.createContent({
+  //     contentType: contentType,
+  //     container: container.replace(/-/g, ''), // Normalize container key (remove dashes)
+  //     displayName: displayName,
+  //     locale: locale,
+  //     status: 'draft',
+  //     properties: parsedProperties
+  //   });
+
+    try {
     // Create the page with provided parameters
     const newPage = await client.createContent({
-      contentType: contentType,
-      container: container.replace(/-/g, ''), // Normalize container key (remove dashes)
-      displayName: displayName,
-      locale: locale,
+      contentType: 'Article',
+      container: 'edbb3527f7fb422fb3ae372d296a0a5a', // Normalize container key (remove dashes)
+      displayName: 'Marcus test',
+      locale: 'en',
       status: 'draft',
-      properties: 'parsedProperties'
+      properties: '' 
     });
+
 
     // Generate preview URL
     const pageUrl = constructPageUrl(newPage.contentType!, newPage.routeSegment!);
