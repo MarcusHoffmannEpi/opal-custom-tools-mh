@@ -1,3 +1,7 @@
+// Load environment variables from .env file
+import dotenv from "dotenv";
+dotenv.config();
+
 import { ToolsService } from "@optimizely-opal/opal-tools-sdk";
 import cors from "cors";
 import express from "express";

@@ -11,6 +11,8 @@ interface CreateCmsPageParameters {
 }
 
 async function MH_create_saas_cms_page(parameters: CreateCmsPageParameters) {
+  console.log('🔍 Tool called with parameters:', JSON.stringify(parameters, null, 2));
+
   const { container, contentType, displayName, locale, properties } = parameters;
 
   // Parse properties JSON string
@@ -32,28 +34,25 @@ async function MH_create_saas_cms_page(parameters: CreateCmsPageParameters) {
     baseUrl: process.env.OPTIMIZELY_CMS_BASE_URL || '',
   });
 
-  // try {
-  //   // Create the page with provided parameters
-  //   const newPage = await client.createContent({
-  //     contentType: contentType,
-  //     container: container.replace(/-/g, ''), // Normalize container key (remove dashes)
-  //     displayName: displayName,
-  //     locale: locale,
-  //     status: 'draft',
-  //     properties: parsedProperties
-  //   });
+  console.log('🔧 Client config:', {
+    clientId: process.env.OPTIMIZELY_CMS_CLIENT_ID,
+    baseUrl: process.env.OPTIMIZELY_CMS_BASE_URL,
+    hasSecret: !!process.env.OPTIMIZELY_CMS_CLIENT_SECRET
+  });
 
-    try {
-    // Create the page with provided parameters
-    const newPage = await client.createContent({
-      contentType: 'Article',
-      container: 'edbb3527f7fb422fb3ae372d296a0a5a', // Normalize container key (remove dashes)
-      displayName: 'Marcus test',
-      locale: 'en',
-      status: 'draft',
-      properties: '' 
-    });
+  try {
+    const contentData = {
+      contentType: contentType,
+      container: container.replace(/-/g, ''), // Normalize container key (remove dashes)
+      displayName: displayName,
+      locale: locale,
+      status: 'draft' as 'draft' | 'published',
+      properties: parsedProperties
+    };
 
+    console.log('📤 Creating content with data:', JSON.stringify(contentData, null, 2));
+
+    const newPage = await client.createContent(contentData);
 
     // Generate preview URL
     const pageUrl = constructPageUrl(newPage.contentType!, newPage.routeSegment!);
@@ -76,13 +75,19 @@ async function MH_create_saas_cms_page(parameters: CreateCmsPageParameters) {
       lastModified: newPage.lastModified,
       previewUrl: previewData?.previewUrl || null,
       previewToken: previewData?.token || null,
-      message: `Successfully created ${contentType} page: "${displayName}" in locale ${locale}${previewData ? ' with preview URL' : ''}`,
+      message: `Successfully created ${newPage.contentType} page: "${newPage.displayName}" in locale ${newPage.locale}${previewData ? ' with preview URL' : ''}`,
       properties: newPage.properties,
     };
   } catch (error: any) {
+    console.error('❌ Error creating page:', error);
+    console.error('❌ Error stack:', error.stack);
+    console.error('❌ Full error object:', JSON.stringify(error, null, 2));
+
     return {
       success: false,
       error: error.message,
+      errorDetails: error.response?.data || error.body || error.toString(),
+      statusCode: error.status,
       message: `Failed to create CMS page: ${error.message}`,
     };
   }

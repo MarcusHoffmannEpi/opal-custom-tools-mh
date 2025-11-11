@@ -76,9 +76,15 @@ export class OptimizelyApiClient {
         contentItem.properties = params.properties;
       }
 
+      console.log('🔸 About to call API with contentItem:', JSON.stringify(contentItem, null, 2));
+
       return await this.client.content.contentCreate(contentItem, false);
     } catch (error: any) {
-      throw new Error(`Failed to create content: ${error.message}`);
+      console.error('🔸 API Client Error:', error);
+      console.error('🔸 API Error Response:', error.response);
+      console.error('🔸 API Error Data:', error.response?.data);
+      console.error('🔸 API Error Status:', error.response?.status);
+      throw error; // Re-throw the original error with all details
     }
   }
 
