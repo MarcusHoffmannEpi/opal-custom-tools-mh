@@ -94,7 +94,7 @@ async function MH_create_saas_cms_page(parameters: CreateCmsPageParameters) {
 }
 
 tool({
-  name: "MH-create-saas-cms_page",
+  name: "MH-create-saas-cms-page",
   description: "Creates a new CMS page in Optimizely based on a given container ID, content type, locale, and properties. The page will be created in draft status. This is a generic tool that can create any content type in any container with any properties.",
   parameters: [
     {

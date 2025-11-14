@@ -12,7 +12,6 @@ interface CreateCmsPageParameters {
 
 interface CreateCmsArticlePageParameters {
   container: string;
-  contentType: string;
   displayName: string;
   locale: string;
   properties: string;
@@ -21,7 +20,8 @@ interface CreateCmsArticlePageParameters {
 async function MH_create_saas_cms_article_page(parameters: CreateCmsArticlePageParameters) {
   console.log('🔍 Tool called with parameters:', JSON.stringify(parameters, null, 2));
 
-  const { container, contentType, displayName, locale, properties } = parameters;
+  const { container, displayName, locale, properties } = parameters;
+  const contentType = 'ArticlePage'; // Hardcoded for article pages
 
   // Parse properties JSON string
   let parsedProperties: Record<string, any>;
@@ -109,8 +109,8 @@ async function MH_create_saas_cms_article_page(parameters: CreateCmsArticlePageP
 }
 
 tool({
-  name: "MH-create-saas-cms_article_page",
-  description: "Creates a new CMS article page in Optimizely based on a given container ID, content type, locale, and properties.",
+  name: "MH-create-saas-cms-article-page",
+  description: "Creates a new ArticlePage in Optimizely CMS. Automatically sets contentType to 'ArticlePage' and adds SEO settings with GraphType 'article'. Use this for creating article pages specifically.",
   parameters: [
     {
       name: "container",
@@ -119,15 +119,9 @@ tool({
       required: true,
     },
     {
-      name: "contentType",
-      type: ParameterType.String,
-      description: "The content type key (e.g., 'BlogPage', 'ArticlePage', 'StandardPage') (required)",
-      required: true,
-    },
-    {
       name: "displayName",
       type: ParameterType.String,
-      description: "The display name for the new page (required)",
+      description: "The display name for the new article page (required)",
       required: true,
     },
     {
@@ -139,7 +133,7 @@ tool({
     {
       name: "properties",
       type: ParameterType.String,
-      description: "JSON string containing the properties object for the page content (required). The structure depends on the content type. Example: {\"Title\": \"My Title\", \"Body\": \"Content here\"}",
+      description: "JSON string containing the properties object for the article page content (required). Example: {\"HeroHeadline\": \"My Title\", \"HeroSubheadline\": \"Subtitle\"}",
       required: true,
     },
   ],
