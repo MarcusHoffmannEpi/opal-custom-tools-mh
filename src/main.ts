@@ -34,6 +34,7 @@ import "./tools/api-call";
 import "./tools/create-saas-cms-article-page";
 import "./tools/create-saas-cms-page";
 import "./tools/get-saas-cms-page";
+import "./tools/update-saas-cms-page";
 import "./tools/greeting";
 import "./tools/rick-roll";
 import "./tools/sqlite-query";
