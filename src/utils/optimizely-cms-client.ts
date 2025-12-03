@@ -95,6 +95,13 @@ export class OptimizelyApiClient {
     try {
       const normalizedKey = this.normalizeContentKey(contentKey);
 
+      console.log('🔸 About to patch content with:', JSON.stringify({
+        key: normalizedKey,
+        version,
+        updates,
+        locale
+      }, null, 2));
+
       return await this.client.content.contentPatchVersion(
         normalizedKey,
         version,
@@ -103,7 +110,10 @@ export class OptimizelyApiClient {
         false
       );
     } catch (error: any) {
-      throw new Error(`Failed to update content: ${error.message}`);
+      console.error('🔸 Patch Error:', error);
+      console.error('🔸 Patch Error Body:', error.body);
+      console.error('🔸 Patch Error Detail:', error.body?.detail);
+      throw error; // Re-throw the original error
     }
   }
 
