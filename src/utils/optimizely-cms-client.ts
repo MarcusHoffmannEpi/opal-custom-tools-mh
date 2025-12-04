@@ -89,6 +89,54 @@ export class OptimizelyApiClient {
   }
 
   /**
+   * Create a new version (e.g., language version/translation) for existing content
+   */
+  async createContentVersion(params: {
+    key: string;
+    contentType: string;
+    container: string;
+    locale: string;
+    displayName: string;
+    status?: 'draft' | 'published';
+    properties?: any;
+    routeSegment?: string;
+  }) {
+    try {
+      const normalizedKey = this.normalizeContentKey(params.key);
+
+      const contentItem: any = {
+        key: normalizedKey,  // Include the key in the request body
+        contentType: params.contentType,
+        locale: params.locale,
+        container: params.container,
+        displayName: params.displayName,
+        status: params.status || 'draft',
+      };
+
+      // Add properties if provided
+      if (params.properties) {
+        contentItem.properties = params.properties;
+      }
+
+      // Add routeSegment if provided
+      if (params.routeSegment) {
+        contentItem.routeSegment = params.routeSegment;
+      }
+
+      console.log('🔸 About to create content version for key:', normalizedKey);
+      console.log('🔸 Version data:', JSON.stringify(contentItem, null, 2));
+
+      return await this.client.content.contentCreateVersion(normalizedKey, contentItem, false);
+    } catch (error: any) {
+      console.error('🔸 API Client Error:', error);
+      console.error('🔸 API Error Response:', error.response);
+      console.error('🔸 API Error Data:', error.response?.data);
+      console.error('🔸 API Error Status:', error.response?.status);
+      throw error; // Re-throw the original error with all details
+    }
+  }
+
+  /**
    * Update content by content key and version
    */
   async updateContent(contentKey: string, version: string, updates: any, locale?: string) {
