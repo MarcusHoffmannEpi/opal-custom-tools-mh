@@ -145,7 +145,7 @@ async function MH_update_page_with_blocks(parameters: UpdatePageWithBlocksParame
 }
 
 tool({
-  name: "MH-update-page-with-blocks",
+  name: "MH-update-saas-cms-page-with-blocks",
   description: "Add blocks to a ContentArea on an existing page in Optimizely CMS. Creates inline blocks and appends them to the specified ContentArea property, preserving any existing blocks.",
   parameters: [
     {
