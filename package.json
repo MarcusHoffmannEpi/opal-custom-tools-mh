@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "@netlify/functions": "^2.4.1",
-    "@optimizely-opal/opal-tools-sdk": "^0.1.0-dev",
-    "@remkoj/optimizely-cms-api": "^5.1.5",
+    "@optimizely-opal/opal-tools-sdk": "^0.1.6-dev",
+    "@remkoj/optimizely-cms-api": "^5.2.0",
     "axios": "^1.6.0",
-    "cors": "^2.8.5",
+    "cors": "^2.8.6",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-basic-auth": "^1.2.1",
@@ -25,8 +25,8 @@
     "@types/express": "^4.17.17",
     "@types/node": "^20.4.5",
     "@types/sqlite3": "^5.1.0",
-    "ts-node": "^10.9.1",
-    "tsc-watch": "^7.1.1",
-    "typescript": "^5.1.6"
+    "ts-node": "^10.9.2",
+    "tsc-watch": "^7.2.0",
+    "typescript": "^5.9.3"
   }
 }

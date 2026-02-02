@@ -136,16 +136,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@optimizely-opal/opal-tools-sdk@npm:^0.1.0-dev":
-  version: 0.1.0-dev
-  resolution: "@optimizely-opal/opal-tools-sdk@npm:0.1.0-dev"
+"@optimizely-opal/opal-tools-sdk@npm:^0.1.6-dev":
+  version: 0.1.6-dev
+  resolution: "@optimizely-opal/opal-tools-sdk@npm:0.1.6-dev"
   dependencies:
-    axios: "npm:^1.6.0"
-    express: "npm:^4.18.2"
     reflect-metadata: "npm:^0.1.13"
   peerDependencies:
+    "@types/express": ^4.17.17
+    "@types/node": ^20.4.5
+    axios: ^1.6.0
     express: ^4.18.2
-  checksum: 10c0/44af7eae22b4a5677b960cced65d46dae37a84c52943fd8ca264f1432fe1c7cf55dec68b4fe44ff2e2662f2c8515decfc3b942b287683ec5dca1ea1bdcaef264
+    typescript: ^5.1.6
+    zod: ^3.25.0 || ^4.0.0
+  checksum: 10c0/faace562ea65bf840ce1f707bad1e705abf2941b595e80d713294a3b91714cee875f4e77fc79a664548b2be9dcb8a5ef3b968e9ffb2d29f8b1839e7913de07c7
   languageName: node
   linkType: hard
 
@@ -156,10 +159,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remkoj/optimizely-cms-api@npm:^5.1.5":
-  version: 5.1.5
-  resolution: "@remkoj/optimizely-cms-api@npm:5.1.5"
-  checksum: 10c0/8f594382a365644cd9f69543274fcad5e9d6acce3159b40fe185c4792ed6e69da5ee39a09a21ed35b67f38ee19047a02a55f2d6aa9ccad07cd47511b68ec9def
+"@remkoj/optimizely-cms-api@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "@remkoj/optimizely-cms-api@npm:5.2.0"
+  checksum: 10c0/34cd30cc62cf7ac751bc193e17920d67e7807cd14ab921dab7b41b7ec6130d90d65ca6b48a3c9a7864b42e04effc9db1271341cf59392fc8939c6fe802af8ee2
   languageName: node
   linkType: hard
 
@@ -753,13 +756,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cors@npm:^2.8.5":
-  version: 2.8.5
-  resolution: "cors@npm:2.8.5"
+"cors@npm:^2.8.6":
+  version: 2.8.6
+  resolution: "cors@npm:2.8.6"
   dependencies:
     object-assign: "npm:^4"
     vary: "npm:^1"
-  checksum: 10c0/373702b7999409922da80de4a61938aabba6929aea5b6fd9096fefb9e8342f626c0ebd7507b0e8b0b311380744cc985f27edebc0a26e0ddb784b54e1085de761
+  checksum: 10c0/ab2bc57b8af8ef8476682a59647f7c55c1a7d406b559ac06119aa1c5f70b96d35036864d197b24cf86e228e4547231088f1f94ca05061dbb14d89cc0bc9d4cab
   languageName: node
   linkType: hard
 
@@ -2021,22 +2024,22 @@ __metadata:
   resolution: "opal-custom-tools@workspace:."
   dependencies:
     "@netlify/functions": "npm:^2.4.1"
-    "@optimizely-opal/opal-tools-sdk": "npm:^0.1.0-dev"
-    "@remkoj/optimizely-cms-api": "npm:^5.1.5"
+    "@optimizely-opal/opal-tools-sdk": "npm:^0.1.6-dev"
+    "@remkoj/optimizely-cms-api": "npm:^5.2.0"
     "@types/cors": "npm:^2.8.18"
     "@types/express": "npm:^4.17.17"
     "@types/node": "npm:^20.4.5"
     "@types/sqlite3": "npm:^5.1.0"
     axios: "npm:^1.6.0"
-    cors: "npm:^2.8.5"
+    cors: "npm:^2.8.6"
     dotenv: "npm:^16.3.1"
     express: "npm:^4.18.2"
     express-basic-auth: "npm:^1.2.1"
     serverless-http: "npm:^3.2.0"
     sqlite3: "npm:^5.1.7"
-    ts-node: "npm:^10.9.1"
-    tsc-watch: "npm:^7.1.1"
-    typescript: "npm:^5.1.6"
+    ts-node: "npm:^10.9.2"
+    tsc-watch: "npm:^7.2.0"
+    typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -2709,7 +2712,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.9.1":
+"ts-node@npm:^10.9.2":
   version: 10.9.2
   resolution: "ts-node@npm:10.9.2"
   dependencies:
@@ -2747,9 +2750,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsc-watch@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "tsc-watch@npm:7.1.1"
+"tsc-watch@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "tsc-watch@npm:7.2.0"
   dependencies:
     cross-spawn: "npm:^7.0.6"
     node-cleanup: "npm:^2.1.2"
@@ -2759,7 +2762,7 @@ __metadata:
     typescript: "*"
   bin:
     tsc-watch: dist/lib/tsc-watch.js
-  checksum: 10c0/e69b530c2664213574aa67bb47544cf8d4e55ea46cd2a8929f44d8b8c8a70c3574b9ebe7b1752348690b276ece895f8db86fcf84c1d88be9868eb0705cce2dad
+  checksum: 10c0/32d849be1579fa57c9503988729ef5dc2886fae6ff7df95eb5fc07ea0a7efce100e0bf32b9a34a8b342fda19a58d810b8723fb49229d53c4ed42cc4bfa0d1e1f
   languageName: node
   linkType: hard
 
@@ -2782,23 +2785,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.1.6":
-  version: 5.8.3
-  resolution: "typescript@npm:5.8.3"
+"typescript@npm:^5.9.3":
+  version: 5.9.3
+  resolution: "typescript@npm:5.9.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/5f8bb01196e542e64d44db3d16ee0e4063ce4f3e3966df6005f2588e86d91c03e1fb131c2581baf0fb65ee79669eea6e161cd448178986587e9f6844446dbb48
+  checksum: 10c0/6bd7552ce39f97e711db5aa048f6f9995b53f1c52f7d8667c1abdc1700c68a76a308f579cd309ce6b53646deb4e9a1be7c813a93baaf0a28ccd536a30270e1c5
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.1.6#optional!builtin<compat/typescript>":
-  version: 5.8.3
-  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=379a07"
+"typescript@patch:typescript@npm%3A^5.9.3#optional!builtin<compat/typescript>":
+  version: 5.9.3
+  resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=379a07"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/92ea03509e06598948559ddcdd8a4ae5a7ab475766d5589f1b796f5731b3d631a4c7ddfb86a3bd44d58d10102b132cd4b4994dda9b63e6273c66d77d6a271dbd
+  checksum: 10c0/6f7e53bf0d9702350deeb6f35e08b69cbc8b958c33e0ec77bdc0ad6a6c8e280f3959dcbfde6f5b0848bece57810696489deaaa53d75de3578ff255d168c1efbd
   languageName: node
   linkType: hard
 
